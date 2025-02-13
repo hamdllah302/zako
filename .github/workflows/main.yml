@@ -1,0 +1,23 @@
+name : Master 2025
+on:
+workflow_dispath:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+    timeout-minutes: 9999
+
+
+    steps:
+      - name: Downlouding & Installing Essentials Essentials
+        run: |
+          Invoke-webRequest -Uri "https://gitlab.com/lm_win-10_github_rdp/-/raw/main/Downlouds.bat" -OutFile "Downlouds.bat"
+          cmd /c Downlouds.bat
+      
+      - name: Connect to LiteManager
+        run: cmd /c show.bat
+
+
+      - name: Time Counter
+        run: cmd /c loop.bat
